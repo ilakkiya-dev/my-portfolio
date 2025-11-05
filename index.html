@@ -1,149 +1,248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ilakkiya P</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ilakkiya P — Portfolio</title>
 
-  <!-- ✅ Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- ✅ Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  <!-- ✅ Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#1fa67a; /* visible green */
+      --muted:#6b7280;
+      --bg:#0f1724; /* dark background for hero */
+      --card-bg:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Poppins',system-ui,Segoe UI,Roboto,Helvetica,Arial;line-height:1.5;color:#0b1220}
+
+    /* Navbar */
+    .navbar{backdrop-filter: blur(6px);background:rgba(255,255,255,0.85)}
+    .navbar-brand{color:var(--accent)!important}
+
+    /* Hero */
+    .hero{min-height:80vh;display:flex;align-items:center;background:linear-gradient(120deg,#093547 0%, #0b4d3b 40%, rgba(31,166,122,0.95) 100%), url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat;color: #fff;}
+    .hero .container{position:relative;z-index:2}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));}
+    .hero h1{font-weight:700;letter-spacing:0.4px}
+    .hero .lead{opacity:.95}
+
+    /* Accent pill */
+    .role-pill{background:rgba(255,255,255,0.08);border-radius:999px;padding:.35rem .75rem;display:inline-block;margin-top:10px}
+
+    /* Section headings */
+    .section-title{color:var(--accent);font-weight:700}
+
+    /* Skill cards */
+    .skill-card{background:#fff;border-radius:12px;padding:18px;text-align:center;box-shadow:0 6px 18px rgba(16,24,40,0.06);font-weight:600;color:#0b1220;transition:transform .35s ease,box-shadow .35s ease}
+    .skill-card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(11,18,32,0.12)}
+
+    /* Projects */
+    .card{border:none;border-radius:12px}
+    .card .card-img-top{height:190px;object-fit:cover;border-top-left-radius:12px;border-top-right-radius:12px}
+
+    /* Contact */
+    .btn-accent{background:var(--accent);border-color:var(--accent);color:#fff}
+    .btn-accent:hover{background:#17895f}
+
+    /* Footer */
+    footer{background:var(--accent);color:#fff}
+
+    /* Responsive spacing */
+    @media(min-width:992px){
+      .hero{min-height:78vh}
+    }
+
+    /* simple reveal animation */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* Accessibility - focus outlines */
+    a:focus{outline:3px solid rgba(31,166,122,.18);outline-offset:3px}
+
+  </style>
 </head>
-<body>
+<body data-bs-spy="scroll" data-bs-target="#menu" data-bs-offset="80" tabindex="0">
 
-  <!-- 🌿 Navbar -->
-  <nav class="navbar navbar-light bg-light fixed-top shadow-sm">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold text-success" href="#"> Portfolio</a>
-      <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu">
-        Menu
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Ilakkiya P</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu" aria-controls="menu">
+        <span class="navbar-toggler-icon"></span>
       </button>
     </div>
   </nav>
 
-  <!-- 🌿 Offcanvas Menu -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="menu">
+  <!-- OFFCANVAS -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="menu" aria-labelledby="menuLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title">Navigation</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      <h5 id="menuLabel">Navigation</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
+      <nav class="nav flex-column">
+        <a class="nav-link" href="#home" data-bs-dismiss="offcanvas">Home</a>
+        <a class="nav-link" href="#about" data-bs-dismiss="offcanvas">About</a>
+        <a class="nav-link" href="#skills" data-bs-dismiss="offcanvas">Skills</a>
+        <a class="nav-link" href="#projects" data-bs-dismiss="offcanvas">Projects</a>
+        <a class="nav-link" href="#contact" data-bs-dismiss="offcanvas">Contact</a>
+      </nav>
+      <hr>
+      <div class="d-flex gap-2">
+        <a class="btn btn-outline-secondary btn-sm" href="https://www.linkedin.com/in/ilakkiya-p-a30920300" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i> LinkedIn</a>
+        <a class="btn btn-outline-secondary btn-sm" href="mailto:ilakkiya0911@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i> Email</a>
+      </div>
     </div>
   </div>
 
-  <!-- 🌿 Hero Section -->
-  <section class="hero d-flex align-items-center justify-content-center text-center" id="home">
-    <div class="text-light">
-      <h1 class="display-5 fw-bold">Ilakkiya P</h1>
-      <p class="lead mt-3">Full Stack Developer | Ethical Hacker | Data Analyst | Data Science Learner|Tech Geek </p>
-      <a href="ILAKKIYA_1761895716510_ILAKKIYA P.pdf" download class="btn btn-success mt-3">Download Resume</a>
-      <a href="https://www.linkedin.com/in/ilakkiya-p-a30920300?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="btn btn-outline-light mt-3">LinkedIn</a>
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="container text-center text-light">
+      <h1 class="display-5">Ilakkiya P</h1>
+      <p class="lead mt-2">Full Stack Developer • Ethical Hacker • Data Analyst</p>
+      <div class="mt-3">
+        <a class="btn btn-accent btn-lg me-2" href="ILAKKIYA_1761895716510_ILAKKIYA P.pdf" download>Download Resume</a>
+        <a class="btn btn-outline-light btn-lg" href="https://www.linkedin.com/in/ilakkiya-p-a30920300" target="_blank">View LinkedIn</a>
+      </div>
+      <div class="mt-3 role-pill">Tech Geek • React • Python • Ethical Hacking</div>
     </div>
-  </section>
+  </header>
 
-  <!-- 🌿 About Section -->
+  <!-- ABOUT -->
   <section id="about" class="container py-5">
     <div class="text-center mb-4">
-      <h2 class="fw-bold text-success">About Me</h2>
-      <p class="text-muted"></p>
+      <h2 class="section-title">About Me</h2>
+      <p class="text-muted">Quick intro & background</p>
     </div>
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow-sm" alt="profile">
+    <div class="row align-items-center g-4">
+      <div class="col-md-5 reveal">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" alt="profile" class="img-fluid rounded shadow-sm">
       </div>
-      <div class="col-md-6">
-        <p class="mt-3">
-          Hello! I’m a passionate ME (Power Systems Engineering) graduate who transitioned into the world of software development and data-driven technology. Currently, I’m working as a Software Trainee, where I apply my strong analytical and programming skills to build efficient, scalable, and secure solutions.
-
-I have hands-on experience in Python, Java, and C#, along with a solid understanding of DBMS and MySQL. My interests span across Web Development, Data Analytics, Data Science, and Ethical Hacking — blending creativity, logic, and security awareness to deliver impactful digital experiences.
-
-I’m skilled in modern web frameworks like ReactJS and Bootstrap, and I enjoy exploring new technologies that bridge the gap between data, design, and intelligent systems. My goal is to continue growing as a Full Stack Developer and Data Professional, contributing to innovative projects that make technology smarter and more human-centric.</p>
+      <div class="col-md-7 reveal">
+        <p>
+          Hello! I’m a passionate <strong>ME (Power Systems Engineering)</strong> graduate turned software professional. I currently work as a <strong>Software Trainee</strong>, where I blend engineering discipline with software development and data skills. I have hands-on experience in <strong>Python, Java, C#</strong> and strong familiarity with <strong>DBMS / MySQL</strong>.
+        </p>
+        <p>
+          My areas of interest include <strong>Web Development (React, Bootstrap)</strong>, <strong>Data Analytics</strong>, <strong>Data Science</strong>, and <strong>Ethical Hacking</strong>. I enjoy building projects that are secure, maintainable, and data-driven.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- 🌿 Skills Section -->
+  <!-- SKILLS -->
   <section id="skills" class="bg-light py-5">
-    <div class="container text-center">
-      <h2 class="fw-bold text-success mb-4">My Skills</h2>
-      <div class="row">
-        <div class="col-md-3 mb-3"><div class="skill-card">HTML / CSS / JS/Bootstrap</div></div>
-        <div class="col-md-3 mb-3"><div class="skill-card">React</div></div>
-        <div class="col-md-3 mb-3"><div class="skill-card">Python / C# </div></div>
-         <div class="col-md-3 mb-3"><div class="skill-card">Python Data Analytics</div>
-           <div class="col-md-3 mb-3"><div class="skill-card">Advance Excel</div>
-           <div class="col-md-3 mb-3"><div class="skill-card">PowerBI</div>
-        <div class="col-md-3 mb-3"><div class="skill-card">Ethical Hacking</div></div>
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="section-title">My Skills</h2>
+        <p class="text-muted">A snapshot of technologies I commonly use</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-sm-6 col-md-3 reveal"><div class="skill-card">HTML / CSS / JS / Bootstrap</div></div>
+        <div class="col-sm-6 col-md-3 reveal"><div class="skill-card">React</div></div>
+        <div class="col-sm-6 col-md-3 reveal"><div class="skill-card">Python / C#</div></div>
+        <div class="col-sm-6 col-md-3 reveal"><div class="skill-card">Python Data Analytics</div></div>
+        <div class="col-sm-6 col-md-3 reveal"><div class="skill-card">Advanced Excel</div></div>
+        <div class="col-sm-6 col-md-3 reveal"><div class="skill-card">Power BI</div></div>
+        <div class="col-sm-6 col-md-3 reveal"><div class="skill-card">Ethical Hacking</div></div>
+        <div class="col-sm-6 col-md-3 reveal"><div class="skill-card">SQL / MySQL</div></div>
       </div>
     </div>
   </section>
 
-  <!-- 🌿 Projects Section -->
+  <!-- PROJECTS -->
   <section id="projects" class="container py-5">
     <div class="text-center mb-4">
-      <h2 class="fw-bold text-success">Projects</h2>
-      <p class="text-muted">Here are some of my favorite works.</p>
+      <h2 class="section-title">Projects</h2>
+      <p class="text-muted">Selected works</p>
     </div>
-    <div class="row">
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Project">
+    <div class="row g-4">
+      <div class="col-md-4 reveal">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Portfolio project">
           <div class="card-body">
             <h5 class="card-title">Portfolio Website</h5>
-            <p class="card-text">Responsive personal website built using Bootstrap, HTML, and CSS.</p>
+            <p class="card-text">Responsive personal website built using Bootstrap, HTML, and CSS with accessibility and mobile-first design.</p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-          <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Project">
+
+      <div class="col-md-4 reveal">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Billing project">
           <div class="card-body">
             <h5 class="card-title">Billing System</h5>
             <p class="card-text">Desktop billing system in ReactJS with GST support and Excel integration.</p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-          <img src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9b9?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Project">
+
+      <div class="col-md-4 reveal">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9b9?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Phishing simulation">
           <div class="card-body">
             <h5 class="card-title">Phishing Simulation</h5>
-            <p class="card-text">Educational cybersecurity project simulating phishing awareness training.</p>
+            <p class="card-text">Educational cybersecurity project simulating phishing awareness training (ethical use only).</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 🌿 Contact Section -->
+  <!-- CONTACT -->
   <section id="contact" class="bg-light py-5">
     <div class="container text-center">
-      <h2 class="fw-bold text-success mb-4">Contact Me</h2>
-      <p class="mb-4 text-muted">Have a project in mind or want to collaborate?</p>
-      <a href="ilakkiya0911@gmail.com" class="btn btn-success px-4">Email Me</a>
+      <h2 class="section-title">Contact Me</h2>
+      <p class="text-muted mb-4">Have a project in mind or want to collaborate?</p>
+      <a href="mailto:ilakkiya0911@gmail.com" class="btn btn-accent px-4 py-2">Email Me</a>
     </div>
   </section>
 
-  <!-- 🌿 Footer -->
-  <footer class="text-center py-3 bg-success text-white">
-    © 2025 Ilakkiya P | DreamHI
+  <!-- FOOTER -->
+  <footer class="text-center py-3 mt-4">
+    <div class="container">
+      <small>© 2025 Ilakkiya P | DreamHI</small>
+    </div>
   </footer>
 
-  <!-- ✅ Bootstrap JS -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- ✅ Custom JS -->
-  <script src="script.js"></script>
+
+  <script>
+    // Reveal on scroll for .reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('visible');
+      });
+    },{threshold:0.12});
+    revealEls.forEach(el=>obs.observe(el));
+
+    // Smooth scroll for internal links (works even inside offcanvas)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // Improve contrast if user prefers light text on light backgrounds (simple check)
+    // If profile image is light, add a subtle border
+    document.querySelectorAll('img').forEach(img=>{
+      img.addEventListener('load', ()=>{
+        // nothing heavy — placeholder for future image enhancements
+      });
+    });
+
+  </script>
 </body>
 </html>
-
-
-
