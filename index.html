@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ilakkiya P</title>
+
+  <!-- ✅ Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- ✅ Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <!-- ✅ Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 🌿 Navbar -->
+  <nav class="navbar navbar-light bg-light fixed-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold text-success" href="#"> Portfolio</a>
+      <button class="btn btn-outline-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu">
+        Menu
+      </button>
+    </div>
+  </nav>
+
+  <!-- 🌿 Offcanvas Menu -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="menu">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Navigation</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 🌿 Hero Section -->
+  <section class="hero d-flex align-items-center justify-content-center text-center" id="home">
+    <div class="text-light">
+      <h1 class="display-5 fw-bold">Ilakkiya P</h1>
+      <p class="lead mt-3">Full Stack Developer | Ethical Hacker | Data Analyst | Data Science Learner|Tech Geek </p>
+      <a href="assets/resume.pdf" download class="btn btn-success mt-3">Download Resume</a>
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="btn btn-outline-light mt-3">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- 🌿 About Section -->
+  <section id="about" class="container py-5">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold text-success">About Me</h2>
+      <p class="text-muted"></p>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded shadow-sm" alt="profile">
+      </div>
+      <div class="col-md-6">
+        <p class="mt-3">
+          Hello! I’m a passionate ME (Power Systems Engineering) graduate who transitioned into the world of software development and data-driven technology. Currently, I’m working as a Software Trainee, where I apply my strong analytical and programming skills to build efficient, scalable, and secure solutions.
+
+I have hands-on experience in Python, Java, and C#, along with a solid understanding of DBMS and MySQL. My interests span across Web Development, Data Analytics, Data Science, and Ethical Hacking — blending creativity, logic, and security awareness to deliver impactful digital experiences.
+
+I’m skilled in modern web frameworks like ReactJS and Bootstrap, and I enjoy exploring new technologies that bridge the gap between data, design, and intelligent systems. My goal is to continue growing as a Full Stack Developer and Data Professional, contributing to innovative projects that make technology smarter and more human-centric.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🌿 Skills Section -->
+  <section id="skills" class="bg-light py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold text-success mb-4">My Skills</h2>
+      <div class="row">
+        <div class="col-md-3 mb-3"><div class="skill-card">HTML / CSS / JS</div></div>
+        <div class="col-md-3 mb-3"><div class="skill-card">React / Angular</div></div>
+        <div class="col-md-3 mb-3"><div class="skill-card">Python / SQL</div></div>
+        <div class="col-md-3 mb-3"><div class="skill-card">Ethical Hacking</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🌿 Projects Section -->
+  <section id="projects" class="container py-5">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold text-success">Projects</h2>
+      <p class="text-muted">Here are some of my favorite works.</p>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Project">
+          <div class="card-body">
+            <h5 class="card-title">Portfolio Website</h5>
+            <p class="card-text">Responsive personal website built using Bootstrap, HTML, and CSS.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Project">
+          <div class="card-body">
+            <h5 class="card-title">Billing System</h5>
+            <p class="card-text">Desktop billing system in ReactJS with GST support and Excel integration.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9b9?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Project">
+          <div class="card-body">
+            <h5 class="card-title">Phishing Simulation</h5>
+            <p class="card-text">Educational cybersecurity project simulating phishing awareness training.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🌿 Contact Section -->
+  <section id="contact" class="bg-light py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold text-success mb-4">Contact Me</h2>
+      <p class="mb-4 text-muted">Have a project in mind or want to collaborate?</p>
+      <a href="mailto:youremail@example.com" class="btn btn-success px-4">Email Me</a>
+    </div>
+  </section>
+
+  <!-- 🌿 Footer -->
+  <footer class="text-center py-3 bg-success text-white">
+    © 2025 Ilakkiya P | DreamHIS
+  </footer>
+
+  <!-- ✅ Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ✅ Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
